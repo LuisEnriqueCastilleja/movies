@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
 import 'package:movies/bloc/movies_tv_people_bloc.dart';
+import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/extra_styles.dart';
+import 'package:movies/helpers/style_movies.dart';
 import 'package:movies/models/trending/trending_model.dart';
+import 'package:movies/navigation/navigation.dart';
 import 'package:movies/pages/movies/list_of_movies_tv_people.dart';
-import 'package:movies/widgets/buttons/floating_button.dart';
+import 'package:movies/widgets/buttons/grey_button.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
 
@@ -18,6 +22,7 @@ class KindOfMoviesTvPeoplePage extends StatefulWidget {
 }
 
 class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
+  final navigation = Modular.get<Navigation>();
   final MoviesTvPeopleBloc _moviesTvPeopleBloc = MoviesTvPeopleBloc();
   List<Trending> listOfTrending = [];
 
@@ -30,15 +35,28 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('What kind of movies and series do tou like ?'),
+            const Text(
+              'What kind of movies and series do you like ?',
+              style: StyleMovies.grayMedium23,
+            ),
             ExtraStyles.boxHeight05,
-            const Text('choose 5'),
+            const Text(
+              'choose 5',
+              style: StyleMovies.grayMedium16,
+            ),
+            //TODO: Add search
+            ExtraStyles.boxHeight10,
             StreamBuilder<ApiResponse<List<Trending>>>(
               stream: _moviesTvPeopleBloc.movieTvPeopleListStream,
               builder: (context, snapshot) {
@@ -68,7 +86,16 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingButton(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 35.0),
+        child: GreyButton(
+          title: 'Done',
+          backgroundColor: ColorsMovies.greenBlack,
+          textStyle: StyleMovies.whiteMedium16,
+          onTap: () => navigation.goToMainPage(),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:movies/helpers/extra_styles.dart';
+import 'package:movies/navigation/navigation.dart';
+import 'package:movies/pages/home/list_of_trending.dart';
+import 'package:movies/pages/home/movies_series_popular_actor_buttons.dart';
+import 'package:movies/pages/home/on_trend_home_list.dart';
+import 'package:movies/widgets/title_and_icon_widget.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final navigation = Modular.get<Navigation>();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 200.0, child: ListOfTrending()),
+          ExtraStyles.boxHeight20,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: MoviesSeriesPopularActorButtons(),
+          ),
+          ExtraStyles.boxHeight10,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: TitleAndIconWidget(
+              title: 'On trend',
+              onTap: () => navigation.goToMoviesPage(),
+            ),
+          ),
+          ExtraStyles.boxHeight05,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: SizedBox(height: 200.0, child: OnTrendHomeList()),
+          ),
+          ExtraStyles.boxHeight10,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: TitleAndIconWidget(
+              title: 'Lastest trailers',
+              onTap: () => navigation.goToMainPage(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

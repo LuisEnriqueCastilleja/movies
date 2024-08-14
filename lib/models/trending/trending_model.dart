@@ -3,6 +3,7 @@ class Trending {
   int? id;
   String? title;
   String? originalTitle;
+  String? originalName;
   String? overview;
   String? posterPath;
   String? mediaType;
@@ -20,6 +21,7 @@ class Trending {
     this.id,
     this.title,
     this.originalTitle,
+    this.originalName,
     this.overview,
     this.posterPath,
     this.mediaType,
@@ -38,6 +40,7 @@ class Trending {
         id: json['id'],
         title: json['title'],
         originalTitle: json['original_title'],
+        originalName: json['original_name'],
         overview: json['overview'],
         posterPath: json['poster_path'],
         mediaType: json['media_type'],

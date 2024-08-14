@@ -9,7 +9,6 @@ class MoviesTvPeopleRepository {
 
   Future<List<Trending>?> fetchMoviesTvPeopleList() async {
     final response = await _apiBaseHelper.get(trendingAllApi);
-    final responseJson = response as Map<String, dynamic>;
-    return TrendingMoviesTvPeopleResponse.fromJson(responseJson).results;
+    return TrendingMoviesTvPeopleResponse.fromJson(response).results;
   }
 }

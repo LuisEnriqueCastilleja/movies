@@ -9,7 +9,9 @@ class ApiBaseHelper {
 
   Future<dynamic> get(String url, [Map<String, String>? headers]) async {
     var uri = Uri.parse(_baseUrl + url);
+    // ignore: prefer_typing_uninitialized_variables
     var responseJson;
+
     try {
       final response = await http.get(uri, headers: {
         HttpHeaders.acceptHeader: 'application/json',
@@ -45,6 +47,7 @@ class ApiBaseHelper {
 
   Future<dynamic> delete(String url) async {
     var uri = Uri.parse(_baseUrl + url);
+
     try {
       final response = await http.delete(uri, headers: {
         HttpHeaders.acceptHeader: 'application/json',
@@ -78,21 +81,6 @@ class ApiBaseHelper {
       }
     }
     return ConnectivityResult.none;
-  }
-
-  Future<dynamic> getTimezones(String url) async {
-    final String timezonesUrl =
-        'http://api.timezonedb.com/v2.1/$url&format=json';
-
-    var uri = Uri.parse(timezonesUrl);
-    var responseJson = [];
-    try {
-      final response = await http.get(uri);
-      responseJson = _returnResponse(response);
-    } on SocketException {
-      throw FetchDataException('No internet connection');
-    }
-    return responseJson;
   }
 
   dynamic _returnResponse(http.Response response) {

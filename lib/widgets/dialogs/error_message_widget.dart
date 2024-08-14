@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/font_awesome.dart';
-import 'package:movies/widgets/buttons/green_button.dart';
+import 'package:movies/widgets/buttons/grey_button.dart';
 
 class ErrorMessageWidget extends StatelessWidget {
   final String errorMessage;
@@ -19,7 +19,7 @@ class ErrorMessageWidget extends StatelessWidget {
         width: 260.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorsMovies.darkGray,
+          color: ColorsMovies.darkGrey,
           boxShadow: const [
             BoxShadow(
                 color: Color.fromRGBO(0, 0, 0, 0.16),
@@ -31,14 +31,14 @@ class ErrorMessageWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FontAwesome.cianAlert,
+            FontAwesome.cianAlert40,
             ExtraStyles.boxHeight10,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(errorMessage),
             ),
             ExtraStyles.boxHeight20,
-            GreenButton(title: 'Retry', onTap: () => onRetryPressed())
+            GreyButton(title: 'Retry', onTap: () => onRetryPressed())
           ],
         ),
       ),

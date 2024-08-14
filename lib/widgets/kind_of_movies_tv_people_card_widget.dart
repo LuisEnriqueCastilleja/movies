@@ -18,6 +18,7 @@ class _KindOfMoviesTvPeopleCardWidgetState
   @override
   Widget build(BuildContext context) {
     return FadeInImage.assetNetwork(
+      fadeInDuration: const Duration(milliseconds: 300),
       fit: BoxFit.cover,
       placeholder: 'assets/img/fondoGris.jpg',
       image:

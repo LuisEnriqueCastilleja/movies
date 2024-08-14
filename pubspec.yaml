@@ -27,3 +27,15 @@ flutter:
   assets:
     - assets/gifs/
     - assets/img/
+
+
+  fonts:
+    - family: InterBold
+      fonts:
+        - asset: assets/fonts/Inter-Bold.ttf
+    - family: InterMedium
+      fonts:
+        - asset: assets/fonts/Inter-Medium.ttf
+    - family: InterSemiBold
+      fonts:
+        - asset: assets/fonts/Inter-SemiBold.ttf
