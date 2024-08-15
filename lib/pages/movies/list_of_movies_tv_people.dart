@@ -62,7 +62,7 @@ class _ListOfMoviesTvPeopleState extends State<ListOfMoviesTvPeople> {
                 ),
                 //Mi widget para el diseño de la tarjeta de las peliculas
                 child: KindOfMoviesTvPeopleCardWidget(
-                  trending: widget.listOfTrending![index],
+                  object: widget.listOfTrending![index],
                 ),
               ),
             );

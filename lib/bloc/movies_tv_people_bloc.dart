@@ -24,7 +24,7 @@ class MoviesTvPeopleBloc extends Disposable {
         .add(ApiResponse.loading('Fetching Movies, TV Shows, People.'));
     try {
       List<Trending>? trendingList =
-          await _moviesTvPeopleRepository?.fetchMoviesTvPeopleList();
+          await _moviesTvPeopleRepository?.getMoviesTvPeopleList();
       movieTvPeopleListSink.add(ApiResponse.completed(trendingList));
     } catch (e) {
       movieTvPeopleListSink.add(ApiResponse.error(e.toString()));

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/navigation/navigation.dart';
-import 'package:movies/pages/home/list_of_trending.dart';
+import 'package:movies/pages/home/popular_tv_series_home_list.dart';
+import 'package:movies/pages/home/popular_movies_home_list.dart';
 import 'package:movies/pages/home/movies_series_popular_actor_buttons.dart';
 import 'package:movies/pages/home/on_trend_home_list.dart';
+import 'package:movies/pages/home/top_rated_tv_series_home_list.dart';
 import 'package:movies/widgets/title_and_icon_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 200.0, child: ListOfTrending()),
+          const SizedBox(height: 200.0, child: PopularMoviesHomeList()),
           ExtraStyles.boxHeight20,
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
@@ -45,10 +47,27 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
-              title: 'Lastest trailers',
+              title: 'Most popular tv series',
               onTap: () => navigation.goToMainPage(),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: SizedBox(height: 200.0, child: PopularTvSeriesHomeList()),
+          ),
+          ExtraStyles.boxHeight10,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: TitleAndIconWidget(
+              title: 'Top rated tv series',
+              onTap: () => navigation.goToMainPage(),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            child: SizedBox(height: 200.0, child: TopRatedTvSeriesHomeList()),
+          ),
+          ExtraStyles.boxHeight20,
         ],
       ),
     );

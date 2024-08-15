@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movies/models/trending/trending_model.dart';
 
 class KindOfMoviesTvPeopleCardWidget extends StatefulWidget {
-  final Trending trending;
+  final dynamic object;
   const KindOfMoviesTvPeopleCardWidget({
     super.key,
-    required this.trending,
+    required this.object,
   });
 
   @override
@@ -22,7 +21,7 @@ class _KindOfMoviesTvPeopleCardWidgetState
       fit: BoxFit.cover,
       placeholder: 'assets/img/fondoGris.jpg',
       image:
-          'https://image.tmdb.org/t/p/original/${widget.trending.backdropPath}',
+          'https://image.tmdb.org/t/p/original/${widget.object.backdropPath}',
     );
   }
 }

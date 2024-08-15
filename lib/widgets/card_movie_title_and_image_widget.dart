@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies/helpers/style_movies.dart';
-import 'package:movies/models/trending/trending_model.dart';
 
 class CardMovieTitleAndImageWidget extends StatelessWidget {
-  final Trending trending;
+  final dynamic object;
 
-  const CardMovieTitleAndImageWidget({super.key, required this.trending});
+  const CardMovieTitleAndImageWidget({super.key, required this.object});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +16,11 @@ class CardMovieTitleAndImageWidget extends StatelessWidget {
             fadeInDuration: const Duration(milliseconds: 300),
             fit: BoxFit.cover,
             placeholder: 'assets/img/fondoGris.jpg',
-            image:
-                'https://image.tmdb.org/t/p/original/${trending.backdropPath}',
+            image: 'https://image.tmdb.org/t/p/original/${object.backdropPath}',
           ),
         ),
         Text(
-          trending.originalTitle ?? '',
+          object.originalTitle ?? object.originalName ?? '',
           style: StyleMovies.blackMedium14,
           overflow: TextOverflow.ellipsis,
         )

@@ -7,20 +7,24 @@ import 'package:movies/pages/home/popular_actors_page.dart';
 import 'package:movies/pages/home/series_page.dart';
 import 'package:movies/pages/main/main_page.dart';
 import 'package:movies/pages/movies/kind_of_movies_tv_people_page.dart';
+import 'package:movies/repositories/popular_movies_respository.dart';
+import 'package:movies/repositories/popular_tv_series_repository.dart';
 import 'package:movies/repositories/movies_tv_people_repository.dart';
+import 'package:movies/repositories/top_rated_tv_series_repository.dart';
 
 class AppModule extends Module {
   @override
   void binds(i) {
-    i.addLazySingleton<Navigation>(
-      () => Navigation(),
-    );
-    i.addLazySingleton<ApiBaseHelper>(
-      () => ApiBaseHelper(),
-    );
+    i.addLazySingleton<Navigation>(() => Navigation());
+    i.addLazySingleton<ApiBaseHelper>(() => ApiBaseHelper());
     i.addLazySingleton<MoviesTvPeopleRepository>(
-      () => MoviesTvPeopleRepository(),
-    );
+        () => MoviesTvPeopleRepository());
+    i.addLazySingleton<PopularTvSeriesRepository>(
+        () => PopularTvSeriesRepository());
+    i.addLazySingleton<TopRatedTvSeriesRepository>(
+        () => TopRatedTvSeriesRepository());
+    i.addLazySingleton<PopularMoviesRepository>(
+        () => PopularMoviesRepository());
   }
 
   @override

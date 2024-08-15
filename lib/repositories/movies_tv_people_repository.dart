@@ -7,7 +7,7 @@ class MoviesTvPeopleRepository {
   final ApiBaseHelper _apiBaseHelper = Modular.get<ApiBaseHelper>();
   String trendingAllApi = 'trending/all/day?language=en-US';
 
-  Future<List<Trending>?> fetchMoviesTvPeopleList() async {
+  Future<List<Trending>?> getMoviesTvPeopleList() async {
     final response = await _apiBaseHelper.get(trendingAllApi);
     return TrendingMoviesTvPeopleResponse.fromJson(response).results;
   }

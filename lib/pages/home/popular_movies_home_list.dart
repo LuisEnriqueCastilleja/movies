@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
-import 'package:movies/bloc/movies_tv_people_bloc.dart';
-import 'package:movies/models/trending/trending_model.dart';
+import 'package:movies/bloc/popular_movies_bloc.dart';
+import 'package:movies/models/popular_movies/popular_movies_model.dart';
 import 'package:movies/widgets/kind_of_movies_tv_people_card_widget.dart';
 
-class ListOfTrending extends StatefulWidget {
-  const ListOfTrending({super.key});
+class PopularMoviesHomeList extends StatefulWidget {
+  const PopularMoviesHomeList({super.key});
 
   @override
-  State<ListOfTrending> createState() => _ListOfTrendingState();
+  State<PopularMoviesHomeList> createState() => _PopularMoviesHomeListState();
 }
 
-class _ListOfTrendingState extends State<ListOfTrending> {
-  final MoviesTvPeopleBloc _moviesTvPeopleBloc = MoviesTvPeopleBloc();
-  List<Trending> listOfTrending = [];
+class _PopularMoviesHomeListState extends State<PopularMoviesHomeList> {
+  final PopularMoviesBloc _popularMoviesBloc = PopularMoviesBloc();
+  List<PopularMovies> listOfPopularMovies = [];
 
   @override
   void initState() {
-    _moviesTvPeopleBloc.fetchMoviesTvPeopleList();
+    _popularMoviesBloc.fetchPopularMovies();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<ApiResponse<List<Trending>>>(
-      stream: _moviesTvPeopleBloc.movieTvPeopleListStream,
+    return StreamBuilder<ApiResponse<List<PopularMovies>>>(
+      stream: _popularMoviesBloc.popularMoviesListStream,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           switch (snapshot.data?.status) {
             case Status.loading:
               return const SizedBox();
             case Status.completed:
-              listOfTrending = snapshot.data!.data!;
-              return (listOfTrending.isEmpty)
+              listOfPopularMovies = snapshot.data!.data!;
+              return (listOfPopularMovies.isEmpty)
                   ? const Center(
                       child: Text(
-                        'No Trending Movies or TV Shows',
+                        'No Popular Movies.',
                       ),
                     )
                   : ListView.separated(
@@ -45,14 +45,14 @@ class _ListOfTrendingState extends State<ListOfTrending> {
                       },
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: listOfTrending.length,
+                      itemCount: listOfPopularMovies.length,
                       itemBuilder: (context, index) {
                         return KindOfMoviesTvPeopleCardWidget(
-                          trending: listOfTrending[index],
+                          object: listOfPopularMovies[index],
                         );
                       });
             case Status.error:
-              return const Text('Error Loading Trending Movies, TV Shows');
+              return const Text('Error Loading Popular Movies.');
             case null:
               break;
           }

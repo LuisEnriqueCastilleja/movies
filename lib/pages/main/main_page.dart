@@ -59,14 +59,14 @@ class _MainPageState extends State<MainPage> {
             label: 'Activity',
           ),
           BottomNavigationBarItem(
-            backgroundColor: ColorsMovies.black,
+            backgroundColor: ColorsMovies.darkBlue,
             icon: (_selectedIndex == 2)
                 ? FontAwesome.whiteList25
                 : FontAwesome.greyList20,
             label: 'My List',
           ),
           BottomNavigationBarItem(
-            backgroundColor: ColorsMovies.black,
+            backgroundColor: ColorsMovies.darkBlue,
             icon: (_selectedIndex == 3)
                 ? FontAwesome.whiteMagnifyingGlass25
                 : FontAwesome.greyMagnifyingGlass20,
