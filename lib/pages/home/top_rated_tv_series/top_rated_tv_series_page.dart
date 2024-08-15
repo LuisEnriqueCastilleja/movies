@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
-import 'package:movies/bloc/movies_tv_people_bloc.dart';
+import 'package:movies/bloc/top_rated_tv_series_bloc.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
-import 'package:movies/models/trending/trending_model.dart';
-import 'package:movies/pages/home/on_trend/list_of_on_trend.dart';
+import 'package:movies/models/top_rated_tv_series/top_rated_tv_series_model.dart';
+import 'package:movies/pages/home/top_rated_tv_series/list_of_top_rated_tv_series.dart';
 import 'package:movies/widgets/app_bars/appbar_back_arrow_widget.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
 
-class OnTrendPage extends StatefulWidget {
-  const OnTrendPage({super.key});
+class TopRatedTvSeriesPage extends StatefulWidget {
+  const TopRatedTvSeriesPage({super.key});
 
   @override
-  State<OnTrendPage> createState() => _OnTrendPageState();
+  State<TopRatedTvSeriesPage> createState() => _TopRatedTvSeriesPageState();
 }
 
-class _OnTrendPageState extends State<OnTrendPage> {
-  final MoviesTvPeopleBloc _moviesTvPeopleBloc = MoviesTvPeopleBloc();
-  List<Trending> listOfTrending = [];
+class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
+  final TopRatedTvSeriesBloc _topRatedTvSeriesBloc = TopRatedTvSeriesBloc();
+  List<TopRatedTvSeries> listOfTopRatedTvSeries = [];
 
   @override
   void initState() {
-    _moviesTvPeopleBloc.fetchMoviesTvPeopleList();
+    _topRatedTvSeriesBloc.fetchTopRatedTvSeriesList();
     super.initState();
   }
 
@@ -43,28 +43,28 @@ class _OnTrendPageState extends State<OnTrendPage> {
             children: [
               ExtraStyles.boxHeight20,
               const Text(
-                'On trend',
+                'Top rated tv series page',
                 style: StyleMovies.blackMedium20,
               ),
               ExtraStyles.boxHeight20,
-              StreamBuilder<ApiResponse<List<Trending>>>(
-                stream: _moviesTvPeopleBloc.movieTvPeopleListStream,
+              StreamBuilder<ApiResponse<List<TopRatedTvSeries>>>(
+                stream: _topRatedTvSeriesBloc.topRatedTvSeriesListStream,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     switch (snapshot.data?.status) {
                       case Status.loading:
                         return const LoadingWidget(
-                            loadingMessage: 'Loading on trend movies');
+                            loadingMessage: 'Loading top rated tv series.');
                       case Status.completed:
-                        listOfTrending = snapshot.data!.data!;
-                        return ListOfOnTrend(
-                          listOfTrending: listOfTrending,
+                        listOfTopRatedTvSeries = snapshot.data!.data!;
+                        return ListOfTopRatedTvSeries(
+                          listOfTopRatedTvSeries: listOfTopRatedTvSeries,
                         );
                       case Status.error:
                         return ErrorMessageWidget(
-                            errorMessage: 'Error Loading on trend',
-                            onRetryPressed: () =>
-                                _moviesTvPeopleBloc.fetchMoviesTvPeopleList());
+                            errorMessage: 'Error Loading top rated tv series',
+                            onRetryPressed: () => _topRatedTvSeriesBloc
+                                .fetchTopRatedTvSeriesList());
                       case null:
                         break;
                     }

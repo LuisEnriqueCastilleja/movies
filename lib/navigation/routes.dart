@@ -6,6 +6,9 @@ enum Routes {
   moviesPage,
   seriesPage,
   popularActorsPage,
+  onTrendPage,
+  mostPopularTvSeries,
+  topRatedTvSeries,
 }
 
 extension RoutesExtension on Routes {
@@ -25,6 +28,12 @@ extension RoutesExtension on Routes {
         return '/series_page';
       case Routes.popularActorsPage:
         return '/popular_actors_page';
+      case Routes.onTrendPage:
+        return '/on_trend_page';
+      case Routes.mostPopularTvSeries:
+        return '/most_popular_tv_series_page';
+      case Routes.topRatedTvSeries:
+        return '/top_rated_tv_series_page';
       default:
         return '';
     }

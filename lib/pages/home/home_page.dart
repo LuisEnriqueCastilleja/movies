@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
               title: 'On trend',
-              onTap: () => navigation.goToMoviesPage(),
+              onTap: () => navigation.goToOnTrendPage(),
             ),
           ),
           ExtraStyles.boxHeight05,
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
               title: 'Most popular tv series',
-              onTap: () => navigation.goToMainPage(),
+              onTap: () => navigation.goToMostPopularTvSeriesPage(),
             ),
           ),
           const Padding(
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
               title: 'Top rated tv series',
-              onTap: () => navigation.goToMainPage(),
+              onTap: () => navigation.goToTopRatedTvSeriesPage(),
             ),
           ),
           const Padding(

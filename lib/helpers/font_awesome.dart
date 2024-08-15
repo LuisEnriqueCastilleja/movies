@@ -61,4 +61,22 @@ class FontAwesome {
     color: ColorsMovies.darkBlue,
     size: 20.0,
   );
+
+  static const FaIcon whiteAngleLeft20 = FaIcon(
+    FontAwesomeIcons.angleLeft,
+    color: ColorsMovies.white,
+    size: 20.0,
+  );
+
+  static const FaIcon whiteBell20 = FaIcon(
+    FontAwesomeIcons.bell,
+    color: ColorsMovies.white,
+    size: 20.0,
+  );
+
+  static const FaIcon whiteUser20 = FaIcon(
+    FontAwesomeIcons.user,
+    color: ColorsMovies.white,
+    size: 20.0,
+  );
 }

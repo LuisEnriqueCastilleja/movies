@@ -21,4 +21,16 @@ class Navigation {
   void goToPopularActorsPage() {
     Modular.to.pushNamed(Routes.popularActorsPage.path);
   }
+
+  void goToOnTrendPage() {
+    Modular.to.pushNamed(Routes.onTrendPage.path);
+  }
+
+  void goToMostPopularTvSeriesPage() {
+    Modular.to.pushNamed(Routes.mostPopularTvSeries.path);
+  }
+
+  void goToTopRatedTvSeriesPage() {
+    Modular.to.pushNamed(Routes.topRatedTvSeries.path);
+  }
 }

@@ -6,6 +6,7 @@ import 'package:movies/pages/activity/activity_page.dart';
 import 'package:movies/pages/home/home_page.dart';
 import 'package:movies/pages/my_lists/my_lists_page.dart';
 import 'package:movies/pages/search/search_page.dart';
+import 'package:movies/widgets/app_bars/appbar_home_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -33,8 +34,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Page'),
+      appBar: AppBarHomeWidget(
+        title: 'Hi Luis',
+        onPressedNotifications: () => {},
+        onPressedUser: () => {},
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
