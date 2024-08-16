@@ -6,10 +6,10 @@ import 'package:movies/bloc/top_rated_tv_series_bloc.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
 import 'package:movies/models/top_rated_tv_series/top_rated_tv_series_model.dart';
-import 'package:movies/pages/home/top_rated_tv_series/list_of_top_rated_tv_series.dart';
 import 'package:movies/widgets/app_bars/appbar_back_arrow_widget.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
+import 'package:movies/widgets/grid_cards_widget.dart';
 
 class TopRatedTvSeriesPage extends StatefulWidget {
   const TopRatedTvSeriesPage({super.key});
@@ -37,43 +37,48 @@ class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
           onPressedNotifications: () => {},
           onPressedUser: () => {},
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          child: Column(
-            children: [
-              ExtraStyles.boxHeight20,
-              const Text(
-                'Top rated tv series page',
-                style: StyleMovies.blackMedium20,
-              ),
-              ExtraStyles.boxHeight20,
-              StreamBuilder<ApiResponse<List<TopRatedTvSeries>>>(
-                stream: _topRatedTvSeriesBloc.topRatedTvSeriesListStream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    switch (snapshot.data?.status) {
-                      case Status.loading:
-                        return const LoadingWidget(
-                            loadingMessage: 'Loading top rated tv series.');
-                      case Status.completed:
-                        listOfTopRatedTvSeries = snapshot.data!.data!;
-                        //TODO: implement GridCardsWidget
-                        return ListOfTopRatedTvSeries(
-                          listOfTopRatedTvSeries: listOfTopRatedTvSeries,
-                        );
-                      case Status.error:
-                        return ErrorMessageWidget(
-                            errorMessage: 'Error Loading top rated tv series',
-                            onRetryPressed: () => _topRatedTvSeriesBloc
-                                .fetchTopRatedTvSeriesList());
-                      case null:
-                        break;
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: Column(
+              children: [
+                ExtraStyles.boxHeight20,
+                const Text(
+                  'Top rated tv series page',
+                  style: StyleMovies.blackMedium20,
+                ),
+                ExtraStyles.boxHeight20,
+                StreamBuilder<ApiResponse<List<TopRatedTvSeries>>>(
+                  stream: _topRatedTvSeriesBloc.topRatedTvSeriesListStream,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      switch (snapshot.data?.status) {
+                        case Status.loading:
+                          return const LoadingWidget(
+                              loadingMessage: 'Loading top rated tv series.');
+                        case Status.completed:
+                          listOfTopRatedTvSeries = snapshot.data!.data!;
+                          //TODO: implement GridCardsWidget
+                          return GridCardsWidget(
+                            titleNoAvailable:
+                                'No top rated tv series available.',
+                            listOfObjects: listOfTopRatedTvSeries,
+                          );
+                        case Status.error:
+                          return ErrorMessageWidget(
+                              errorMessage: 'Error Loading top rated tv series',
+                              onRetryPressed: () => _topRatedTvSeriesBloc
+                                  .fetchTopRatedTvSeriesList());
+                        case null:
+                          break;
+                      }
                     }
-                  }
-                  return Container();
-                },
-              ),
-            ],
+                    return Container();
+                  },
+                ),
+                ExtraStyles.boxHeight20,
+              ],
+            ),
           ),
         ));
   }

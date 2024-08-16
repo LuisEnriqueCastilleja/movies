@@ -50,9 +50,9 @@ class FontAwesome {
     size: 25.0,
   );
 
-  static const FaIcon greyMagnifyingGlass20 = FaIcon(
+  static const FaIcon darkBlueMagnifyingGlass20 = FaIcon(
     FontAwesomeIcons.magnifyingGlass,
-    color: ColorsMovies.darkGrey,
+    color: ColorsMovies.darkBlue,
     size: 20.0,
   );
 

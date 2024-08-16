@@ -56,26 +56,23 @@ class Movie {
 
 //TODO: Por si quieres registrar alguna pelicula, lo dejo para fines de la practica
   // Map<String, dynamic> toJson() {
-  //   final Map<String, dynamic> data = new Map<String, dynamic>();
-  //   data['backdrop_path'] = this.backdropPath;
-  //   data['id'] = this.id;
-  //   data['title'] = this.title;
-  //   data['original_title'] = this.originalTitle;
-  //   data['overview'] = this.overview;
-  //   data['poster_path'] = this.posterPath;
-  //   data['media_type'] = this.mediaType;
-  //   data['adult'] = this.adult;
-  //   data['original_language'] = this.originalLanguage;
-  //   data['genre_ids'] = this.genreIds;
-  //   data['popularity'] = this.popularity;
-  //   data['release_date'] = this.releaseDate;
-  //   data['video'] = this.video;
-  //   data['vote_average'] = this.voteAverage;
-  //   data['vote_count'] = this.voteCount;
-  //   data['name'] = this.name;
-  //   data['original_name'] = this.originalName;
-  //   data['first_air_date'] = this.firstAirDate;
-  //   data['origin_country'] = this.originCountry;
+  //   final Map<String, dynamic> data = Map<String, dynamic>();
+  //   data['backdrop_path'] = backdropPath;
+  //   data['id'] = id;
+  //   data['title'] = title;
+  //   data['original_title'] = originalTitle;
+  //   data['overview'] = overview;
+  //   data['poster_path'] = posterPath;
+  //   data['media_type'] = mediaType;
+  //   data['adult'] = adult;
+  //   data['original_language'] = originalLanguage;
+  //   data['genre_ids'] = genreIds;
+  //   data['popularity'] = popularity;
+  //   data['release_date'] = releaseDate;
+  //   data['video'] = video;
+  //   data['vote_average'] = voteAverage;
+  //   data['vote_count'] = voteCount;
+  //   data['original_name'] = originalName;
   //   return data;
   // }
 }

@@ -11,11 +11,14 @@ import 'package:movies/pages/home/top_rated_tv_series/top_rated_tv_series_page.d
 import 'package:movies/pages/login/login_page.dart';
 import 'package:movies/pages/main/main_page.dart';
 import 'package:movies/pages/kind_of_movies_tv_people_do_you_like/kind_of_movies_tv_people_page.dart';
+import 'package:movies/repositories/coming_soon_movies_repository.dart';
 import 'package:movies/repositories/popular_movies_respository.dart';
 import 'package:movies/repositories/popular_tv_series_repository.dart';
 import 'package:movies/repositories/movies_tv_people_repository.dart';
 import 'package:movies/repositories/search_movie_repository.dart';
+import 'package:movies/repositories/top_rated_movies_repository.dart';
 import 'package:movies/repositories/top_rated_tv_series_repository.dart';
+import 'package:movies/repositories/trending_movies_repository.dart';
 
 class AppModule extends Module {
   @override
@@ -31,6 +34,12 @@ class AppModule extends Module {
     i.addLazySingleton<PopularMoviesRepository>(
         () => PopularMoviesRepository());
     i.addLazySingleton<SearchMoviesRepository>(() => SearchMoviesRepository());
+    i.addLazySingleton<TrendingMoviesRepository>(
+        () => TrendingMoviesRepository());
+    i.addLazySingleton<TopRatedMoviesRepository>(
+        () => TopRatedMoviesRepository());
+    i.addLazySingleton<ComingSoonMoviesRepository>(
+        () => ComingSoonMoviesRepository());
   }
 
   @override

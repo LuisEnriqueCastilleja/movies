@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
-import 'package:movies/pages/home/buttons_to_search_movies.dart';
+import 'package:movies/pages/home/home_movies/list_of_coming_soon_movies_home.dart';
+import 'package:movies/pages/home/home_movies/list_of_popular_movies_home.dart';
+import 'package:movies/pages/home/home_movies/list_of_top_rated_movies_home.dart';
+import 'package:movies/pages/home/home_movies/list_of_trending_movies_home.dart';
+import 'package:movies/widgets/buttons_to_search_movies_widget.dart';
 import 'package:movies/pages/home/home_movies/list_of_movies_filtered_home.dart';
 import 'package:movies/widgets/app_bars/appbar_back_arrow_widget.dart';
 import 'package:movies/widgets/inputs/search_input.dart';
@@ -16,11 +20,24 @@ class MoviesPage extends StatefulWidget {
 
 class _MoviesPageState extends State<MoviesPage> {
   final TextEditingController _searchController = TextEditingController();
-  bool showPopularMovies = false;
-  bool showTopRatedMovies = false;
-  bool showTrendingMovies = false;
-  bool showComingSoonMovies = false;
-  bool showMoviesFiltered = false;
+  int selectedIndex = 1;
+
+  Widget _getListWidget() {
+    switch (selectedIndex) {
+      case 0:
+        return ListOfMoviesFilteredHome(search: _searchController.text.trim());
+      case 1:
+        return const ListOfPopularMoviesHome();
+      case 2:
+        return const ListOfTopRatedMoviesHome();
+      case 3:
+        return const ListOfTrendingMoviesHome();
+      case 4:
+        return const ListOfComingSoonMoviesHome();
+      default:
+        return const ListOfPopularMoviesHome();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,81 +64,28 @@ class _MoviesPageState extends State<MoviesPage> {
                   controller: _searchController,
                   onChanged: (text) => {},
                   onTapIconFilter: (String search) => setState(() {
-                    showPopularMovies = false;
-                    showTopRatedMovies = false;
-                    showTrendingMovies = false;
-                    showComingSoonMovies = false;
-                    showMoviesFiltered = true;
+                    selectedIndex = 0;
                   }),
                 ),
                 ExtraStyles.boxHeight10,
-                ButtonsToSearchMovies(
+                ButtonsToSearchMoviesWidget(
                   onTapPopular: () => setState(() {
-                    showPopularMovies = true;
-                    showTopRatedMovies = false;
-                    showTrendingMovies = false;
-                    showComingSoonMovies = false;
-                    showMoviesFiltered = false;
+                    selectedIndex = 1;
                   }),
                   onTapTopRated: () => setState(() {
-                    showPopularMovies = false;
-                    showTopRatedMovies = true;
-                    showTrendingMovies = false;
-                    showComingSoonMovies = false;
-                    showMoviesFiltered = false;
+                    selectedIndex = 2;
                   }),
                   onTapTrending: () => {
                     setState(() {
-                      showPopularMovies = false;
-                      showTopRatedMovies = false;
-                      showTrendingMovies = true;
-                      showComingSoonMovies = false;
-                      showMoviesFiltered = false;
+                      selectedIndex = 3;
                     }),
                   },
                   onTapComingSoon: () => setState(() {
-                    showPopularMovies = false;
-                    showTopRatedMovies = false;
-                    showTrendingMovies = false;
-                    showComingSoonMovies = true;
-                    showMoviesFiltered = false;
+                    selectedIndex = 4;
                   }),
                 ),
                 ExtraStyles.boxHeight20,
-                //TODO: ADD LIST OF MOVIES
-                Visibility(
-                    maintainSize: false,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: showMoviesFiltered,
-                    child: ListOfMoviesFilteredHome(
-                      isVisible: showMoviesFiltered,
-                      search: _searchController.text.trim(),
-                    )),
-                Visibility(
-                    maintainSize: false,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: showPopularMovies,
-                    child: Container()),
-                Visibility(
-                    maintainSize: false,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: showTopRatedMovies,
-                    child: Container()),
-                Visibility(
-                    maintainSize: false,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: showTrendingMovies,
-                    child: Container()),
-                Visibility(
-                    maintainSize: false,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: showComingSoonMovies,
-                    child: Container()),
+                _getListWidget()
               ],
             ),
           ),

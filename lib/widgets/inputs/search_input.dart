@@ -29,7 +29,7 @@ class _SearchInputState extends State<SearchInput> {
     _textFieldFocus.addListener(() {
       if (_textFieldFocus.hasFocus) {
         setState(() {
-          _color = ColorsMovies.darkGrey;
+          _color = ColorsMovies.lightgrey;
         });
       } else {
         setState(() {
@@ -51,7 +51,7 @@ class _SearchInputState extends State<SearchInput> {
       },
       focusNode: _textFieldFocus,
       keyboardType: TextInputType.text,
-      cursorColor: ColorsMovies.cian,
+      cursorColor: ColorsMovies.darkBlue,
       style: StyleMovies.blackMedium14,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(right: 10.0, bottom: 0, top: 0),
@@ -60,18 +60,19 @@ class _SearchInputState extends State<SearchInput> {
         fillColor: _color,
         filled: true,
         prefixIcon: IconButton(
-          icon: Container(
-            padding: const EdgeInsets.only(left: 15.0, top: 12.0),
-            child: FontAwesome.greyMagnifyingGlass20,
-          ),
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          icon: FontAwesome.darkBlueMagnifyingGlass20,
           onPressed: () => widget.onTapIconFilter(search),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: ColorsMovies.cian, width: 1.0),
+          borderSide:
+              const BorderSide(color: ColorsMovies.darkBlue, width: 1.0),
           borderRadius: BorderRadius.circular(5.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: ColorsMovies.cian, width: 1.0),
+          borderSide:
+              const BorderSide(color: ColorsMovies.darkBlue, width: 1.0),
           borderRadius: BorderRadius.circular(5.0),
         ),
       ),

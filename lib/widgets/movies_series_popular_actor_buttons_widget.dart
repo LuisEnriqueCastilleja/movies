@@ -4,16 +4,16 @@ import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/navigation/navigation.dart';
 import 'package:movies/widgets/buttons/text_button_widget.dart';
 
-class MoviesSeriesPopularActorButtons extends StatefulWidget {
-  const MoviesSeriesPopularActorButtons({super.key});
+class MoviesSeriesPopularActorButtonsWidget extends StatefulWidget {
+  const MoviesSeriesPopularActorButtonsWidget({super.key});
 
   @override
-  State<MoviesSeriesPopularActorButtons> createState() =>
-      _MoviesSeriesPopularActorButtonsState();
+  State<MoviesSeriesPopularActorButtonsWidget> createState() =>
+      _MoviesSeriesPopularActorButtonsWidgetState();
 }
 
-class _MoviesSeriesPopularActorButtonsState
-    extends State<MoviesSeriesPopularActorButtons> {
+class _MoviesSeriesPopularActorButtonsWidgetState
+    extends State<MoviesSeriesPopularActorButtonsWidget> {
   final navigation = Modular.get<Navigation>();
 
   @override

@@ -6,10 +6,10 @@ import 'package:movies/bloc/popular_tv_series_bloc.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
 import 'package:movies/models/popular_tv_series/popular_tv_series_model.dart';
-import 'package:movies/pages/home/most_popular_tv_series/list_of_most_popular_tv_series.dart';
 import 'package:movies/widgets/app_bars/appbar_back_arrow_widget.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
+import 'package:movies/widgets/grid_cards_widget.dart';
 
 class MostPopularTvSeriesPage extends StatefulWidget {
   const MostPopularTvSeriesPage({super.key});
@@ -38,44 +38,49 @@ class _MostPopularTvSeriesPageState extends State<MostPopularTvSeriesPage> {
           onPressedNotifications: () => {},
           onPressedUser: () => {},
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          child: Column(
-            children: [
-              ExtraStyles.boxHeight20,
-              const Text(
-                'Most populart tv series',
-                style: StyleMovies.blackMedium20,
-              ),
-              ExtraStyles.boxHeight20,
-              StreamBuilder<ApiResponse<List<PopularTvSeries>>>(
-                stream: _popularTvSeriesBloc.popularTvSeriesListStream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    switch (snapshot.data?.status) {
-                      case Status.loading:
-                        return const LoadingWidget(
-                            loadingMessage: 'Loading on trend movies');
-                      case Status.completed:
-                        listOfPopularTvSeries = snapshot.data!.data!;
-                        //TODO: implement GridCardsWidget
-                        return ListOfMostPopularTvSeries(
-                          listOfPopularTvSeries: listOfPopularTvSeries,
-                        );
-                      case Status.error:
-                        return ErrorMessageWidget(
-                            errorMessage:
-                                'Error Loading most popular tv series',
-                            onRetryPressed: () => _popularTvSeriesBloc
-                                .fetchPopularTvSeriesList());
-                      case null:
-                        break;
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: Column(
+              children: [
+                ExtraStyles.boxHeight20,
+                const Text(
+                  'Most populart tv series',
+                  style: StyleMovies.blackMedium20,
+                ),
+                ExtraStyles.boxHeight20,
+                StreamBuilder<ApiResponse<List<PopularTvSeries>>>(
+                  stream: _popularTvSeriesBloc.popularTvSeriesListStream,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      switch (snapshot.data?.status) {
+                        case Status.loading:
+                          return const LoadingWidget(
+                              loadingMessage: 'Loading on trend movies');
+                        case Status.completed:
+                          listOfPopularTvSeries = snapshot.data!.data!;
+                          //TODO: implement GridCardsWidget
+                          return GridCardsWidget(
+                            titleNoAvailable:
+                                'No most popular tv series available.',
+                            listOfObjects: listOfPopularTvSeries,
+                          );
+                        case Status.error:
+                          return ErrorMessageWidget(
+                              errorMessage:
+                                  'Error Loading most popular tv series',
+                              onRetryPressed: () => _popularTvSeriesBloc
+                                  .fetchPopularTvSeriesList());
+                        case null:
+                          break;
+                      }
                     }
-                  }
-                  return Container();
-                },
-              ),
-            ],
+                    return Container();
+                  },
+                ),
+                ExtraStyles.boxHeight20,
+              ],
+            ),
           ),
         ));
   }

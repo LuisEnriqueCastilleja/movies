@@ -72,7 +72,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: ColorsMovies.darkBlue,
             icon: (_selectedIndex == 3)
                 ? FontAwesome.whiteMagnifyingGlass25
-                : FontAwesome.greyMagnifyingGlass20,
+                : FontAwesome.darkBlueMagnifyingGlass20,
             label: 'Search',
           ),
         ],

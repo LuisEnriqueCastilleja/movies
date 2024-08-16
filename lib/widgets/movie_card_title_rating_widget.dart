@@ -27,20 +27,23 @@ class MovieCardTitleRatingWidget extends StatelessWidget {
               bottom: 0,
               left: 0,
               right: 0,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${object.originalTitle ?? object.originalName ?? ''}',
-                    style: StyleMovies.whiteMedium12,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    '${object.voteAverage}',
-                    style: StyleMovies.whiteMedium12,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(left: 5.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${object.originalTitle ?? object.originalName ?? ''}',
+                      style: StyleMovies.whiteMedium12,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      '${object.voteAverage}',
+                      style: StyleMovies.whiteMedium12,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
               ))
         ],
       ),

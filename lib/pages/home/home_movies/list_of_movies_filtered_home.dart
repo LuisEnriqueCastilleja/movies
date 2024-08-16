@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
-import 'package:movies/bloc/movies_bloc.dart';
+import 'package:movies/bloc/search_movies_bloc.dart';
 import 'package:movies/models/movie/movie_model.dart';
 import 'package:movies/widgets/grid_cards_widget.dart';
 
 class ListOfMoviesFilteredHome extends StatefulWidget {
   final String search;
-  final bool isVisible;
-  const ListOfMoviesFilteredHome(
-      {super.key, required this.search, required this.isVisible});
+  const ListOfMoviesFilteredHome({super.key, required this.search});
 
   @override
   State<ListOfMoviesFilteredHome> createState() =>
@@ -21,11 +19,9 @@ class _ListOfMoviesFilteredHomeState extends State<ListOfMoviesFilteredHome> {
   List<Movie> listOfMoviesFiltered = [];
 
   @override
-  void didUpdateWidget(ListOfMoviesFilteredHome oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.isVisible && oldWidget.search != widget.search) {
-      _searchMoviesBloc.fetchSearchedMovies(widget.search);
-    }
+  void initState() {
+    _searchMoviesBloc.fetchSearchedMovies(widget.search);
+    super.initState();
   }
 
   @override

@@ -4,7 +4,7 @@ import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/navigation/navigation.dart';
 import 'package:movies/pages/home/popular_tv_series_home_list.dart';
 import 'package:movies/pages/home/popular_movies_home_list.dart';
-import 'package:movies/pages/home/movies_series_popular_actor_buttons.dart';
+import 'package:movies/widgets/movies_series_popular_actor_buttons_widget.dart';
 import 'package:movies/pages/home/on_trend_home_list.dart';
 import 'package:movies/pages/home/top_rated_tv_series_home_list.dart';
 import 'package:movies/widgets/title_and_icon_widget.dart';
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           ExtraStyles.boxHeight20,
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
-            child: MoviesSeriesPopularActorButtons(),
+            child: MoviesSeriesPopularActorButtonsWidget(),
           ),
           ExtraStyles.boxHeight10,
           Padding(
