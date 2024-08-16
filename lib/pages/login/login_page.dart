@@ -9,6 +9,7 @@ import 'package:movies/widgets/buttons/login_with_button_widget.dart';
 import 'package:movies/widgets/inputs/input_text.dart';
 import 'package:movies/widgets/inputs/show_password_input.dart';
 
+//Pagina del Login
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -18,7 +19,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final navigation = Modular.get<Navigation>();
+  //FormKey para checar el estado de nuestro Form
   final _formKey = GlobalKey<FormState>();
+  //Controllers de los inputs.
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -56,13 +59,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ExtraStyles.boxHeight40,
                 InputText(
-                    hint: 'username*',
-                    type: TextInputType.text,
-                    controller: _usernameController),
+                  hint: 'username*',
+                  type: TextInputType.text,
+                  controller: _usernameController,
+                  characterLimitNumber: 50,
+                ),
                 ExtraStyles.boxHeight40,
                 ShowPasswordInput(
                   hint: 'password*',
                   controller: _passwordController,
+                  characterLimitNumber: 50,
                 ),
                 ExtraStyles.boxHeight30,
                 Row(
@@ -83,9 +89,14 @@ class _LoginPageState extends State<LoginPage> {
                     textStyle: StyleMovies.whiteMedium16,
                     title: 'Log in',
                     onTap: () async {
+                      //Utilizamos el metodo validate del form para validar los inputs
+                      //Para verificar si estan vacios, pero aqui adentro podemos validar mas cosas con respecto al formulario
                       if (_formKey.currentState!.validate()) {
+                        //Aqui podriamos agregar un dialogo de cargando y despues hacer la peticion del Login
                         await postLogin();
+                        //Cuando acabara la peticion del Login ya quitariamos el dialogo de cargando
                       }
+                      //Aqui podriamos agregar el else y poner que en caso de que esten vacios algun dialogo en caso de que lo requeramos
                     }),
                 ExtraStyles.boxHeight50,
                 const Row(
@@ -147,11 +158,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+//Metodo para llamar el postLogin, este es Future para la cuestion de si queramos agrer un dialogo de cargando
   Future postLogin() async {
     try {
+      //Aqui en lugar de ser variables podriamos tener nuestro modelo de login y alimentar
+      //Sus propiedades con lo que tenga en la propiedad text los controllers.
       String username = _usernameController.text.trim();
       String password = _passwordController.text.trim();
 
+//LLamamos al metodo para hacer el Login
       return _postLogin(username, password);
     } catch (e) {
       return e;
@@ -159,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _postLogin(String user, String password) async {
-//TODO: Primero se haria la peticion a la API mediante el repositorio y despues guardariamos el response y se lo mandariamos nuestra clase ApiResponse
+//TODO: Primero se haria la peticion a la API mediante el repositorio y despues guardariamos el response y se lo mandariamos a nuestra clase ApiResponse
 
 //TODO: Aqui mediante la clase ApiResponse y su metodo validateResponse veo que me devolvio la API, si devolvio un 200 lo redirigiria a la pagina que debe ir
 //Tambien validamos los errores

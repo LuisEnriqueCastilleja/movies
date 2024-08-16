@@ -1,3 +1,4 @@
+//Para capturar las excepciones que me devuelva la API
 class AppException implements Exception {
   final String _message;
   final String _prefix;

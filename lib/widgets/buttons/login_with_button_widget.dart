@@ -3,6 +3,7 @@ import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//Boton para loguearte con Google, Facebook, pide el imagePath de la imagen para el boton y titulo del boton
 class LoginWithButtonWidget extends StatelessWidget {
   final String title;
   final String imagePath;

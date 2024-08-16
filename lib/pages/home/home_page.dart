@@ -9,6 +9,7 @@ import 'package:movies/pages/home/on_trend_home_list.dart';
 import 'package:movies/pages/home/top_rated_tv_series_home_list.dart';
 import 'package:movies/widgets/title_and_icon_widget.dart';
 
+//El HomePage que contiene 4 listado de peliculas
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -24,13 +25,16 @@ class _HomePageState extends State<HomePage> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          //Listado con las peliculas populares
           const SizedBox(height: 200.0, child: PopularMoviesHomeList()),
           ExtraStyles.boxHeight20,
+          //Botones de Movies, series, popular actors
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
             child: MoviesSeriesPopularActorButtonsWidget(),
           ),
           ExtraStyles.boxHeight10,
+          //Cuando le de al icono de On Trend hacemos que navegue a la pagina para ver las peliculas, TV Series, actors on trend
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
@@ -39,11 +43,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ExtraStyles.boxHeight05,
+          //Listado en mi home page con las tv series on trend
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
             child: SizedBox(height: 200.0, child: OnTrendHomeList()),
           ),
           ExtraStyles.boxHeight10,
+          //Cuando le de al icono de most popular tv series hacemos que navegue a la pagina para ver las TV Series mas populares
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
@@ -51,11 +57,13 @@ class _HomePageState extends State<HomePage> {
               onTap: () => navigation.goToMostPopularTvSeriesPage(),
             ),
           ),
+          //Listado con las tv series mas populares
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
             child: SizedBox(height: 200.0, child: PopularTvSeriesHomeList()),
           ),
           ExtraStyles.boxHeight10,
+          //Cuando le de al icono de top rated tv series hacemos que navegue a la pagina para ver las TV Series on trend
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: TitleAndIconWidget(
@@ -63,6 +71,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () => navigation.goToTopRatedTvSeriesPage(),
             ),
           ),
+          //Listado con las tv series mejores calificadas
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40.0),
             child: SizedBox(height: 200.0, child: TopRatedTvSeriesHomeList()),

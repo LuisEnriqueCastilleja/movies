@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 
+//Dialogo para mostrar cuando el estado que devuelve el BLoC es loading
 class LoadingWidget extends StatelessWidget {
   final String loadingMessage;
 

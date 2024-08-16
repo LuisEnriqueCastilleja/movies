@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 
+//Para poder acceder a los estilos que utliza nuestra aplicacion de una manera mas flexible y organizada.
 class StyleMovies {
   //Fonts
   static const String movieInterMedium = 'InterMedium';

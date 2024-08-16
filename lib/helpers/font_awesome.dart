@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:movies/helpers/colors_movies.dart';
 
+//Para poder acceder a los iconos que utiliza nuestra aplicacion de una manera mas flexible y organizada.
 class FontAwesome {
   static const FaIcon cianAlert40 = FaIcon(
     FontAwesomeIcons.circleExclamation,
@@ -83,6 +84,12 @@ class FontAwesome {
   static const FaIcon cianSolidEye20 = FaIcon(
     FontAwesomeIcons.solidEye,
     color: ColorsMovies.darkBlue,
+    size: 20.0,
+  );
+
+  static const FaIcon greyEyeSlash20 = FaIcon(
+    FontAwesomeIcons.eyeSlash,
+    color: ColorsMovies.darkGrey,
     size: 20.0,
   );
 }

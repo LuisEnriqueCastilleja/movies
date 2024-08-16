@@ -27,11 +27,12 @@ class _ListOfMoviesTvPeopleState extends State<ListOfMoviesTvPeople> {
       return Expanded(
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // Número de columnas
-            crossAxisSpacing: 10.0, // Espacio horizontal entre los elementos
-            mainAxisSpacing: 10.0, // Espacio vertical entre los elementos
-            childAspectRatio:
-                0.7, // Ajusta el aspecto (ancho:alto) de las tarjetas
+            // Número de columnas
+            crossAxisCount: 3,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            // Ajusta el aspecto (ancho:alto) de las tarjetas
+            childAspectRatio: 0.7,
           ),
           itemCount: widget.listOfTrending!.length,
           itemBuilder: (context, index) {
@@ -60,7 +61,7 @@ class _ListOfMoviesTvPeopleState extends State<ListOfMoviesTvPeople> {
                         )
                       : Border.all(width: 0.0),
                 ),
-                //Mi widget para el diseño de la tarjeta de las peliculas
+                //Widget para el diseño de la tarjeta de las peliculas
                 child: KindOfMoviesTvPeopleCardWidget(
                   object: widget.listOfTrending![index],
                 ),

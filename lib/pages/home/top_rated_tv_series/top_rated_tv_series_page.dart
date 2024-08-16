@@ -58,7 +58,6 @@ class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
                               loadingMessage: 'Loading top rated tv series.');
                         case Status.completed:
                           listOfTopRatedTvSeries = snapshot.data!.data!;
-                          //TODO: implement GridCardsWidget
                           return GridCardsWidget(
                             titleNoAvailable:
                                 'No top rated tv series available.',

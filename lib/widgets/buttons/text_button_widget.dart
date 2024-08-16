@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//TextButton simple con solo el titulo
 class TextButtonWidget extends StatelessWidget {
   final String title;
   final TextStyle textStyle;

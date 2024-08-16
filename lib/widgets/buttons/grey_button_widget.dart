@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//Boton gris general
 class GreyButtonWidget extends StatelessWidget {
   final String title;
   final Color backgroundColor;

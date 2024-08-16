@@ -11,6 +11,7 @@ import 'package:movies/pages/home/home_movies/list_of_movies_filtered_home.dart'
 import 'package:movies/widgets/app_bars/appbar_back_arrow_widget.dart';
 import 'package:movies/widgets/inputs/search_input.dart';
 
+//Pagina de peliculas
 class MoviesPage extends StatefulWidget {
   const MoviesPage({super.key});
 
@@ -20,8 +21,9 @@ class MoviesPage extends StatefulWidget {
 
 class _MoviesPageState extends State<MoviesPage> {
   final TextEditingController _searchController = TextEditingController();
-  int selectedIndex = 1;
+  int selectedIndex = 5;
 
+//Para decir que listado se va a dibujar dependiendo a que boton le de.
   Widget _getListWidget() {
     switch (selectedIndex) {
       case 0:
@@ -34,8 +36,13 @@ class _MoviesPageState extends State<MoviesPage> {
         return const ListOfTrendingMoviesHome();
       case 4:
         return const ListOfComingSoonMoviesHome();
+      case 5:
+        return const Text(
+          'Select a filter o use the search to find movies.',
+          style: StyleMovies.blackMedium14,
+        );
       default:
-        return const ListOfPopularMoviesHome();
+        return Container();
     }
   }
 
@@ -63,11 +70,12 @@ class _MoviesPageState extends State<MoviesPage> {
                 SearchInput(
                   controller: _searchController,
                   onChanged: (text) => {},
-                  onTapIconFilter: (String search) => setState(() {
+                  onTapIconFilter: () => setState(() {
                     selectedIndex = 0;
                   }),
                 ),
                 ExtraStyles.boxHeight10,
+                //Dependiendo que boton le de guardamos un index para dibujar el listado que se requiera
                 ButtonsToSearchMoviesWidget(
                   onTapPopular: () => setState(() {
                     selectedIndex = 1;

@@ -4,7 +4,10 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 import 'package:movies/api/api_exceptions.dart';
 
+//Archivo donde manejo las peticiones que van a la API
 class ApiBaseHelper {
+  //Es la URL base, cuando implementas Flavors aqui se cambiaria para que cambie cuando sea
+  //Production o Staging
   final String _baseUrl = 'https://api.themoviedb.org/3/';
 
   Future<dynamic> get(String url, [Map<String, String>? headers]) async {

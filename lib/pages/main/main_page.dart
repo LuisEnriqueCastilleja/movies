@@ -8,6 +8,7 @@ import 'package:movies/pages/my_lists/my_lists_page.dart';
 import 'package:movies/pages/search/search_page.dart';
 import 'package:movies/widgets/app_bars/appbar_home_widget.dart';
 
+//Pagina princiapl que contiene las 4 paginas, de Home, Activity, MyLists, Search
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -18,6 +19,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
+//Paginas del BottomNavigationBar
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     ActivityPage(),
@@ -25,6 +27,7 @@ class _MainPageState extends State<MainPage> {
     SearchPage(),
   ];
 
+//Cuando le de al icono guardamos el index para cambiar de pagina
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -40,6 +43,7 @@ class _MainPageState extends State<MainPage> {
         onPressedUser: () => {},
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
+      //BottomNavigationBar para tener las 4 paginas
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
@@ -47,6 +51,7 @@ class _MainPageState extends State<MainPage> {
         unselectedLabelStyle: StyleMovies.greyMedium12,
         showUnselectedLabels: true,
         items: [
+          //Listado de iconos del BottomNavigationBar
           BottomNavigationBarItem(
             backgroundColor: ColorsMovies.darkBlue,
             icon: (_selectedIndex == 0)

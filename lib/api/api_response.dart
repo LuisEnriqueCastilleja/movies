@@ -1,5 +1,6 @@
 import 'package:movies/api/api_status.dart';
 
+//Para manejar los estados en mi Bloc
 class ApiResponse<T> {
   Status status;
   T? data;
@@ -15,6 +16,9 @@ class ApiResponse<T> {
   String toString() {
     return "Status : $status \n Message : $message \n Data : $data";
   }
+
+
+//Con este manejo para ver que me devolvio la API cuando hago un POST, UPDATE o DELETE.
 
   // static validateResponse({
   //   BuildContext? context,

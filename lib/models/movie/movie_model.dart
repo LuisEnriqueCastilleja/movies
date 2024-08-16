@@ -1,3 +1,8 @@
+//TODO: Explicación de los modelos.
+//Modelo de movie, se que los modelos eran muy parecidos todos pero decidi crear varios modelos porque
+//Para un futuro si llega a cambiar algun modelo esten separados cada uno dependiendo de lo que hace
+
+//Propiedades de nuestro objeto
 class Movie {
   String? backdropPath;
   int? id;
@@ -35,6 +40,7 @@ class Movie {
     this.voteCount,
   });
 
+//Metodo fromJson para traernos de un mapa los datos.
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         backdropPath: json['backdrop_path'],
         id: json['id'],
@@ -54,7 +60,7 @@ class Movie {
         voteCount: json['vote_count'],
       );
 
-//TODO: Por si quieres registrar alguna pelicula, lo dejo para fines de la practica
+//Por si alguna vez quieres registrar alguna pelicula, lo dejo para fines de la practica
   // Map<String, dynamic> toJson() {
   //   final Map<String, dynamic> data = Map<String, dynamic>();
   //   data['backdrop_path'] = backdropPath;

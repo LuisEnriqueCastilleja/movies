@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Para crear espacios en vertical y horizontal en nuestra aplicacion para no implementar muchos Padding o Container con margin
 class ExtraStyles {
   //Para cuando quiero espacio vertical y para no agregar margins
   static SizedBox boxHeight05 = const SizedBox(height: 5.0);

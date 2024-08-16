@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/font_awesome.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//Widget con Titulo y icono
 class TitleAndIconWidget extends StatelessWidget {
   final String title;
   final Function() onTap;

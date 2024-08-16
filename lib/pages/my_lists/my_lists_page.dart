@@ -10,10 +10,8 @@ class MyListsPage extends StatefulWidget {
 class _MyListsPageState extends State<MyListsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Text('My Lists Page'),
-      ),
+    return const Scaffold(
+      body: Text('My Lists Page'),
     );
   }
 }

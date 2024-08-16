@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Imagen de la tarjeta de peliculas
 class KindOfMoviesTvPeopleCardWidget extends StatefulWidget {
   final dynamic object;
   const KindOfMoviesTvPeopleCardWidget({

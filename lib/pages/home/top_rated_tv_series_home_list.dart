@@ -52,6 +52,9 @@ class _TopRatedTvSeriesHomeListState extends State<TopRatedTvSeriesHomeList> {
                             width: 130.0,
                             child: CardMovieTitleAndImageWidget(
                               object: listOfTopRatedTvSeries[index],
+                              onTap: () => {
+                                //TODO: Navegar a los detalles de la pelicula
+                              },
                             ),
                           );
                         });

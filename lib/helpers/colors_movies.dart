@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Para poder acceder a los colores que utliza nuestra aplicacion de una manera mas flexible y organizada.
 class ColorsMovies {
   //Colors of the app
   static const Color darkGrey = Color.fromRGBO(112, 112, 112, 1);

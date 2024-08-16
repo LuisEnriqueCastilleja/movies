@@ -6,7 +6,7 @@ import 'package:movies/helpers/style_movies.dart';
 class SearchInput extends StatefulWidget {
   final TextEditingController controller;
   final Function(String text) onChanged;
-  final Function(String text) onTapIconFilter;
+  final Function() onTapIconFilter;
 
   const SearchInput({
     super.key,
@@ -20,12 +20,14 @@ class SearchInput extends StatefulWidget {
 }
 
 class _SearchInputState extends State<SearchInput> {
+  //Para manejar cuando hace focus o no en el input
   final FocusNode _textFieldFocus = FocusNode();
-  String search = '';
+  //Para guardar lo que tiene
   Color _color = Colors.transparent;
 
   @override
   void initState() {
+    //Agregamos el listener para cambiar el color de fondo del input
     _textFieldFocus.addListener(() {
       if (_textFieldFocus.hasFocus) {
         setState(() {
@@ -46,7 +48,6 @@ class _SearchInputState extends State<SearchInput> {
     return TextFormField(
       controller: widget.controller,
       onChanged: (value) => {
-        search = value,
         widget.onChanged(value),
       },
       focusNode: _textFieldFocus,
@@ -59,11 +60,13 @@ class _SearchInputState extends State<SearchInput> {
         enabled: true,
         fillColor: _color,
         filled: true,
+        //PrefixIcon para hacer la peticion
         prefixIcon: IconButton(
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(),
           icon: FontAwesome.darkBlueMagnifyingGlass20,
-          onPressed: () => widget.onTapIconFilter(search),
+          //Hacer el callback para que cuando le de al boton del search
+          onPressed: () => widget.onTapIconFilter(),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide:

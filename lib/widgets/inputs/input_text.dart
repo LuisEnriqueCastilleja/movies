@@ -5,6 +5,7 @@ import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/regular_expressions.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//Input
 class InputText extends StatefulWidget {
   final bool isRequired;
   final TextInputType type;
@@ -30,11 +31,13 @@ class InputText extends StatefulWidget {
 }
 
 class _InputTextState extends State<InputText> {
+  //Para manejar cuando hace focus o no en el input
   final FocusNode _textFieldFocus = FocusNode();
   Color _color = Colors.transparent;
 
   @override
   void initState() {
+    //Agregamos el listener para cambiar el color de fondo del input
     _textFieldFocus.addListener(() {
       if (_textFieldFocus.hasFocus) {
         setState(() {
@@ -51,38 +54,47 @@ class _InputTextState extends State<InputText> {
 
   @override
   Widget build(BuildContext context) {
+    //Metodo para validar si el input esta vacio
     validateField(value) {
       if (value.trim().isEmpty) {
+        //Mensaje que se mostrara cuando entra el metodo de validacion del form
         return 'Please fill required fields';
       }
+      //SI el tipo del teclado es email agregamos esta validacion para que proporcione un correo valido(No lo utilice en el Login pero igual lo deje como ejemplo)
       if (widget.type == TextInputType.emailAddress &&
           !EmailValidator.validate(value)) {
+        //Mensaje que se mostrara cuando entra el metodo de validacion del form
         return 'Please enter a valid email';
       }
     }
 
     return TextFormField(
       controller: widget.controller,
+      //Para validar cuando el input esta vacio u otras validaciones
       validator: (widget.isRequired)
           ? (value) {
               String? res = validateField(value);
               return res;
             }
           : null,
+      //Listado de formatters que recibe el input, aqui agregamos las validaciones del input
       inputFormatters: (widget.type == TextInputType.number)
           ? [
+              //Para cuando el teclado sea de tipo number utilizamos la expresion regular para que solo pueda poner numero del 0 al 9
               RegularExpressions.numbers0_9(),
             ]
           : [
               FilteringTextInputFormatter.singleLineFormatter,
+              //Limite de caracteres en el input
               LengthLimitingTextInputFormatter(widget.characterLimitNumber)
             ],
+      //Cuando cambia el valor del input
       onChanged:
           widget.onChanged != null ? (text) => widget.onChanged!(text) : null,
-      // obscureText: widget.obscureText != null ? widget.obscureText : false,
       cursorColor: ColorsMovies.darkBlue,
       keyboardType: widget.type,
       focusNode: _textFieldFocus,
+      //Diseño del input
       decoration: InputDecoration(
         labelText: widget.hint,
         errorStyle: const TextStyle(height: 0),

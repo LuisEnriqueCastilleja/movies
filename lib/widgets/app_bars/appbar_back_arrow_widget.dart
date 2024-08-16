@@ -3,6 +3,7 @@ import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/font_awesome.dart';
 import 'package:movies/helpers/style_movies.dart';
 
+//AppBar con icono para volver hacia atras
 class AppBarBackArrowWidget extends StatelessWidget
     implements PreferredSizeWidget {
   final String title;

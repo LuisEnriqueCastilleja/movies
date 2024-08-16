@@ -52,6 +52,9 @@ class _PopularTvSeriesHomeListState extends State<PopularTvSeriesHomeList> {
                             width: 130.0,
                             child: CardMovieTitleAndImageWidget(
                               object: listOfPopularTvSeries[index],
+                              onTap: () => {
+                                //TODO: Navegar a los detalles de la pelicula
+                              },
                             ),
                           );
                         });

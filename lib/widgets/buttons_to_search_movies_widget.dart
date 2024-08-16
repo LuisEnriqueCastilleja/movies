@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/widgets/buttons/text_button_widget.dart';
 
+//Botones de popular, trending, top rated y coming soon
 class ButtonsToSearchMoviesWidget extends StatelessWidget {
   final Function() onTapPopular;
   final Function() onTapTrending;

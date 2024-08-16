@@ -13,6 +13,7 @@ import 'package:movies/widgets/buttons/grey_button_widget.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
 
+//Pagina para escoger 5 peliculas que me gusten
 class KindOfMoviesTvPeoplePage extends StatefulWidget {
   const KindOfMoviesTvPeoplePage({super.key});
 
@@ -22,12 +23,15 @@ class KindOfMoviesTvPeoplePage extends StatefulWidget {
 }
 
 class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
+  //Para tener mi objeto para navegar a la siguiente pagina
   final navigation = Modular.get<Navigation>();
+  //Instancia del BLoc
   final MoviesTvPeopleBloc _moviesTvPeopleBloc = MoviesTvPeopleBloc();
   List<Trending> listOfTrending = [];
 
   @override
   void initState() {
+    //Utilizamos el metodo del BLoC para traernos los datos
     _moviesTvPeopleBloc.fetchMoviesTvPeopleList();
     super.initState();
   }
@@ -58,6 +62,7 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
             ),
             //TODO: Add search
             ExtraStyles.boxHeight10,
+            //StreamBuilder para manejar los datos del BLoC
             StreamBuilder<ApiResponse<List<Trending>>>(
               stream: _moviesTvPeopleBloc.movieTvPeopleListStream,
               builder: (context, snapshot) {

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
 import 'package:movies/bloc/movies_tv_people_bloc.dart';
 import 'package:movies/models/trending/trending_model.dart';
+import 'package:movies/navigation/navigation.dart';
 import 'package:movies/widgets/movie_card_title_and_image_widget.dart';
 
 class OnTrendHomeList extends StatefulWidget {
@@ -13,6 +15,7 @@ class OnTrendHomeList extends StatefulWidget {
 }
 
 class _OnTrendHomeListState extends State<OnTrendHomeList> {
+  final navigation = Modular.get<Navigation>();
   final MoviesTvPeopleBloc _moviesTvPeopleBloc = MoviesTvPeopleBloc();
   List<Trending> listOfTrending = [];
 
@@ -51,6 +54,9 @@ class _OnTrendHomeListState extends State<OnTrendHomeList> {
                             width: 130.0,
                             child: CardMovieTitleAndImageWidget(
                               object: listOfTrending[index],
+                              onTap: () => {
+                                //TODO: Navegar a los detalles de la pelicula
+                              },
                             ),
                           );
                         });

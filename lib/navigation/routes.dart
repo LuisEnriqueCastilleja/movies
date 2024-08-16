@@ -1,3 +1,4 @@
+//Enumerado de las rutas de mi pagina
 enum Routes {
   splash,
   check,
@@ -12,6 +13,7 @@ enum Routes {
 }
 
 extension RoutesExtension on Routes {
+  //Listado de rutas de mis paginas.
   String get path {
     switch (this) {
       case Routes.splash:

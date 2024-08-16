@@ -4,6 +4,7 @@ import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/navigation/navigation.dart';
 import 'package:movies/widgets/buttons/text_button_widget.dart';
 
+//Botones de movies, TV series y actores populares
 class MoviesSeriesPopularActorButtonsWidget extends StatefulWidget {
   const MoviesSeriesPopularActorButtonsWidget({super.key});
 

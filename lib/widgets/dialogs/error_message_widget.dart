@@ -4,6 +4,7 @@ import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/font_awesome.dart';
 import 'package:movies/widgets/buttons/grey_button_widget.dart';
 
+//Dialogo para mostrar cuando el estado que devuelve el BLoC es error
 class ErrorMessageWidget extends StatelessWidget {
   final String errorMessage;
   final Function() onRetryPressed;
