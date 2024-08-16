@@ -3,7 +3,7 @@ import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
 import 'package:movies/bloc/movies_tv_people_bloc.dart';
 import 'package:movies/models/trending/trending_model.dart';
-import 'package:movies/widgets/card_movie_title_and_image_widget.dart';
+import 'package:movies/widgets/movie_card_title_and_image_widget.dart';
 
 class OnTrendHomeList extends StatefulWidget {
   const OnTrendHomeList({super.key});

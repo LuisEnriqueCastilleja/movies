@@ -30,7 +30,7 @@ class ApiBaseHelper {
     var connectivityResult = await (Connectivity().checkConnectivity());
 
     var uri = Uri.parse(_baseUrl + url);
-    if (connectivityResult != ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       try {
         final response = await http
             .put(uri, body: body != null ? json.encode(body) : null, headers: {
@@ -68,7 +68,7 @@ class ApiBaseHelper {
     var connectivityResult = await (Connectivity().checkConnectivity());
 
     var uri = Uri.parse(_baseUrl + url);
-    if (connectivityResult != ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       try {
         final response =
             await http.post(uri, body: json.encode(body), headers: {

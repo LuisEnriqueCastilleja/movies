@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:movies/helpers/colors_movies.dart';
 import 'package:movies/helpers/style_movies.dart';
 
-class GreyButton extends StatelessWidget {
+class GreyButtonWidget extends StatelessWidget {
   final String title;
   final Color backgroundColor;
   final TextStyle textStyle;
   final Function() onTap;
 
-  const GreyButton({
+  const GreyButtonWidget({
     super.key,
     this.backgroundColor = ColorsMovies.darkGrey,
     this.textStyle = StyleMovies.blackMedium20,

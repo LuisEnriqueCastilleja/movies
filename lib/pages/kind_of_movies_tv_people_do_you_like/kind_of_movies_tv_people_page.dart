@@ -8,8 +8,8 @@ import 'package:movies/helpers/extra_styles.dart';
 import 'package:movies/helpers/style_movies.dart';
 import 'package:movies/models/trending/trending_model.dart';
 import 'package:movies/navigation/navigation.dart';
-import 'package:movies/pages/movies/list_of_movies_tv_people.dart';
-import 'package:movies/widgets/buttons/grey_button.dart';
+import 'package:movies/pages/kind_of_movies_tv_people_do_you_like/list_of_movies_tv_people.dart';
+import 'package:movies/widgets/buttons/grey_button_widget.dart';
 import 'package:movies/widgets/dialogs/error_message_widget.dart';
 import 'package:movies/widgets/dialogs/loading_dialog_widget.dart';
 
@@ -40,6 +40,7 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
         elevation: 0,
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
+        leading: const SizedBox(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -48,7 +49,7 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
           children: [
             const Text(
               'What kind of movies and series do you like ?',
-              style: StyleMovies.grayMedium23,
+              style: StyleMovies.greyMedium23,
             ),
             ExtraStyles.boxHeight05,
             const Text(
@@ -88,9 +89,9 @@ class _KindOfMoviesTvPeoplePageState extends State<KindOfMoviesTvPeoplePage> {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35.0),
-        child: GreyButton(
+        child: GreyButtonWidget(
           title: 'Done',
-          backgroundColor: ColorsMovies.greenBlack,
+          backgroundColor: ColorsMovies.darkBlue,
           textStyle: StyleMovies.whiteMedium16,
           onTap: () => navigation.goToMainPage(),
         ),

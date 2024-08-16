@@ -21,7 +21,7 @@ class _KindOfMoviesTvPeopleCardWidgetState
       fit: BoxFit.cover,
       placeholder: 'assets/img/fondoGris.jpg',
       image:
-          'https://image.tmdb.org/t/p/original/${widget.object.backdropPath}',
+          'https://image.tmdb.org/t/p/original/${widget.object.backdropPath ?? widget.object.posterPath}',
     );
   }
 }

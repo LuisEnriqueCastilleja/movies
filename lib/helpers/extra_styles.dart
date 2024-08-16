@@ -5,6 +5,9 @@ class ExtraStyles {
   static SizedBox boxHeight05 = const SizedBox(height: 5.0);
   static SizedBox boxHeight10 = const SizedBox(height: 10.0);
   static SizedBox boxHeight20 = const SizedBox(height: 20.0);
+  static SizedBox boxHeight30 = const SizedBox(height: 30.0);
+  static SizedBox boxHeight40 = const SizedBox(height: 40.0);
+  static SizedBox boxHeight50 = const SizedBox(height: 50.0);
 
   //Para cuando quiero espacio horizontal y para no agregar margins
   static SizedBox boxWidth05 = const SizedBox(width: 5.0);

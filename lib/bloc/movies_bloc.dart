@@ -10,7 +10,7 @@ class SearchMoviesBloc extends Disposable {
 
   StreamSink<ApiResponse<List<Movie>>> get searchMoviesListSink =>
       _searchMoviesListController!.sink;
-  Stream<ApiResponse<List<Movie>>> get popularMoviesListStream =>
+  Stream<ApiResponse<List<Movie>>> get searchMoviesListStream =>
       _searchMoviesListController!.stream;
 
   SearchMoviesBloc() {
@@ -18,7 +18,7 @@ class SearchMoviesBloc extends Disposable {
     _searchMoviesRepository = Modular.get<SearchMoviesRepository>();
   }
 
-  Future fetchSearchedMovies(String search) async {
+  fetchSearchedMovies(String search) async {
     searchMoviesListSink.add(ApiResponse.loading('Fetching Movies.'));
     try {
       List<Movie>? searchMoviesList =

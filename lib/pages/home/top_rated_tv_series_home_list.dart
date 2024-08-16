@@ -3,7 +3,7 @@ import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
 import 'package:movies/bloc/top_rated_tv_series_bloc.dart';
 import 'package:movies/models/top_rated_tv_series/top_rated_tv_series_model.dart';
-import 'package:movies/widgets/card_movie_title_and_image_widget.dart';
+import 'package:movies/widgets/movie_card_title_and_image_widget.dart';
 
 class TopRatedTvSeriesHomeList extends StatefulWidget {
   const TopRatedTvSeriesHomeList({super.key});

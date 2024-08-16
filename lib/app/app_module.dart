@@ -8,8 +8,9 @@ import 'package:movies/pages/home/on_trend/on_trend_page.dart';
 import 'package:movies/pages/home/popular_actors_page.dart';
 import 'package:movies/pages/home/series_page.dart';
 import 'package:movies/pages/home/top_rated_tv_series/top_rated_tv_series_page.dart';
+import 'package:movies/pages/login/login_page.dart';
 import 'package:movies/pages/main/main_page.dart';
-import 'package:movies/pages/movies/kind_of_movies_tv_people_page.dart';
+import 'package:movies/pages/kind_of_movies_tv_people_do_you_like/kind_of_movies_tv_people_page.dart';
 import 'package:movies/repositories/popular_movies_respository.dart';
 import 'package:movies/repositories/popular_tv_series_repository.dart';
 import 'package:movies/repositories/movies_tv_people_repository.dart';
@@ -34,7 +35,7 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child('/', child: (context) => const KindOfMoviesTvPeoplePage());
+    r.child('/', child: (context) => const LoginPage());
     r.child(Routes.kindOfMoviesTvPeople.path,
         child: (context) => const KindOfMoviesTvPeoplePage());
     r.child(Routes.mainPage.path, child: (context) => const MainPage());

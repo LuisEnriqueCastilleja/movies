@@ -3,7 +3,7 @@ import 'package:movies/api/api_response.dart';
 import 'package:movies/api/api_status.dart';
 import 'package:movies/bloc/popular_tv_series_bloc.dart';
 import 'package:movies/models/popular_tv_series/popular_tv_series_model.dart';
-import 'package:movies/widgets/card_movie_title_and_image_widget.dart';
+import 'package:movies/widgets/movie_card_title_and_image_widget.dart';
 
 class PopularTvSeriesHomeList extends StatefulWidget {
   const PopularTvSeriesHomeList({super.key});

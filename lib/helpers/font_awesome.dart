@@ -79,4 +79,10 @@ class FontAwesome {
     color: ColorsMovies.white,
     size: 20.0,
   );
+
+  static const FaIcon cianSolidEye20 = FaIcon(
+    FontAwesomeIcons.solidEye,
+    color: ColorsMovies.darkBlue,
+    size: 20.0,
+  );
 }

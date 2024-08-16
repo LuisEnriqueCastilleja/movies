@@ -14,7 +14,7 @@ class LoadingWidget extends StatelessWidget {
         width: 260.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorsMovies.darkGrey,
+          color: ColorsMovies.lightBlue,
           boxShadow: const [
             BoxShadow(
                 color: Color.fromRGBO(0, 0, 0, 0.16),

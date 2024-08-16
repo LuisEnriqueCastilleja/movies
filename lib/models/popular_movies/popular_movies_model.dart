@@ -54,7 +54,7 @@ class PopularMovies {
         voteCount: json['vote_count'],
       );
 
-//TODO: VER SI SE USA
+//TODO: Por si quieres registrar alguna pelicula, lo dejo para fines de la practica
   // Map<String, dynamic> toJson() {
   //   final Map<String, dynamic> data = new Map<String, dynamic>();
   //   data['backdrop_path'] = this.backdropPath;

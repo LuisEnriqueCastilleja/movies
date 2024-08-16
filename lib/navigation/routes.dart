@@ -16,8 +16,6 @@ extension RoutesExtension on Routes {
     switch (this) {
       case Routes.splash:
         return '/splash';
-      case Routes.check:
-        return '/check_auth';
       case Routes.kindOfMoviesTvPeople:
         return '/kind_of_movies_tv_people';
       case Routes.mainPage:
