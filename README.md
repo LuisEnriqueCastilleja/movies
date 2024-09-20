@@ -1,3 +1,1 @@
-# luis_peliculas
-
-A new Flutter project.
+# This a Flutter app developed for a technique interview.
